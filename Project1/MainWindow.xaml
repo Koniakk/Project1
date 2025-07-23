@@ -11,9 +11,9 @@
             <Button 
          Margin="10 10 10 0"
          Height="70"
-         Width="250"
-         Content="Список фильмов"
-         Background="Purple"
+         Width="220"
+         Content="Список стран"
+         Background="LightCoral"
          FontSize="30"
          BorderBrush="Transparent"
          x:Name="CountryListPage"
@@ -22,14 +22,15 @@
             <Button 
          Margin="10 10 10 0"
          Height="70"
-         Width="250"
+         Width="220"
          Content="Бронирование"
-         Background="Purple"
+         Background="LightCoral"
          FontSize="30"
          BorderBrush="Transparent"
-         x:Name="BokingPage"
+         x:Name="TicketListPage"
          Click="BokingPage_Click"
          />
+           
         </StackPanel>
         <Frame x:Name="Main"
             Margin="0,80,0,0"

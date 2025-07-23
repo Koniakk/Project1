@@ -1,8 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
+using Project1.Core.Entity;
+
+
+
 
 namespace Project1.Core
 {
-    public class Country
+    public class Country:IIdentifiable
     {
         public static int _id_counter = 0;
         /// <summary>
@@ -21,10 +26,12 @@ namespace Project1.Core
 
         public string Title { get; set; }
 
-
         public override string ToString()
         {
             return ItemId + "|" + Title;
         }
     }
+
+    
+
 }

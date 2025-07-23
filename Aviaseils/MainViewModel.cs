@@ -1,9 +1,9 @@
-﻿using Project1.Core;
-using Project1.Core.Service;
+﻿
 using Project1App.Core;
 using System.Collections.ObjectModel;
 
-namespace Project1App
+namespace Aviaseils
+
 {
    public class MainViewModel : ObservableObject
     {
@@ -23,6 +23,8 @@ namespace Project1App
         private ObservableCollection<Country> _countryList = new ObservableCollection<Country>();
         public ObservableCollection<Country> CountryList { get => _countryList; set { _countryList = value; OnPropertyChanged("CountryList"); } }
 
+        public MainViewModel(ObservableCollection<Country> countryList) => CountryList = countryList;
+
         private CountryService countryService;
 
         private Country _selectedCountry;
@@ -36,7 +38,9 @@ namespace Project1App
             }
         }
 
+#pragma warning disable CS8618 // Поле, не допускающее значения NULL, должно содержать значение, отличное от NULL, при выходе из конструктора. Возможно, стоит объявить поле как допускающее значения NULL.
         public MainViewModel(CountryService service)
+#pragma warning restore CS8618 // Поле, не допускающее значения NULL, должно содержать значение, отличное от NULL, при выходе из конструктора. Возможно, стоит объявить поле как допускающее значения NULL.
         {
             countryService = service;
             CountryList = new ObservableCollection<Country>(countryService.GetAll());

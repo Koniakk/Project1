@@ -1,5 +1,4 @@
-﻿using Project1App;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +16,11 @@ using System.Windows.Shapes;
 namespace Project1
 {
     /// <summary>
-    /// Логика взаимодействия для CountryListPage.xaml
+    /// Логика взаимодействия для TicketListPage.xaml
     /// </summary>
-    public partial class CountryListPage : Page
+    public partial class TicketListPage : Page
     {
-        public CountryListPage(CountryViewModel viewModel)
+        public TicketListPage(TicketViewModel viewModel)
         {
             DataContext = viewModel;
             InitializeComponent();

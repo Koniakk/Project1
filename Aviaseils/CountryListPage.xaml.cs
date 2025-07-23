@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project1
+namespace Project1App
 {
     /// <summary>
     /// Логика взаимодействия для CountryListPage.xaml
     /// </summary>
     public partial class CountryListPage : Page
     {
-        public CountryListPage(CountryViewModel viewModel)
+        public CountryListPage(MainViewModel viewModel)
         {
             DataContext = viewModel;
             InitializeComponent();
