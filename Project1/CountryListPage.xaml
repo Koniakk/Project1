@@ -55,7 +55,7 @@
         Height="100"
         Width="300"
         Content="Добавить"
-        Background="Coral"
+        Background="SkyBlue"
         FontSize="30"
         BorderBrush="Transparent"
         x:Name="Add"

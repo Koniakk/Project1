@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Newtonsoft.Json;
 using Project1.Entity;
 using System;
 using System.Collections.Generic;
@@ -11,17 +12,7 @@ namespace Project1.Core.Entity
 {
     public class Passenger : IdentifiableEntity
     {
-
         private const bool IsNameRequired = true;
-        public static int _id_counter= 0;
-        private List<Passenger> articles = [];
-
-        public Passenger(string name, int age)
-       {
-           ItemId = _id_counter++;
-           Name = name;
-           Age = age;
-       }
 
         internal class Configuration() : Configuration<Passenger>()
         {
@@ -36,26 +27,8 @@ namespace Project1.Core.Entity
 
         public int Age { get; set; }
         public string? Name { get; set; } = string.Empty;
-        public int ItemId { get; set; }
+        public List<Ticket> Tickets { get; set; } = [];
 
-
-       // public string? Name { get; set; } = string.Empty;
-        public List<Ticket> Tickets { get => Tickets; set => articles = value; }         //  public List<Article> Articles { get; set; } = [];
-
-
-
-
-
-        //[JsonProperty("ItemId")]
-
-        //public string Name { get; set; }
-
-
-
-        //public override string ToString()
-        //{
-        //    return ItemId + "|" + Name  + "|" + Age;
-        //}
 
     }
 }

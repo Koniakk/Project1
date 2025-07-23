@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Project1.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace Project1.Core.Entity
 {
-    public class Ticket:IIdentifiable
+    public class Ticket : IdentifiableEntity
     {
         public static int _id_counter = 0;
+        private const bool IsNameRequired = true;
+
 
         public Ticket(Country from, Country where, DateTime data, string title_1 = "all avia companies")
         {
@@ -20,7 +23,21 @@ namespace Project1.Core.Entity
             Data = data;
         }
 
+
+
+        internal class Configuration() : Configuration<Ticket>()
+        {
+            public override void Configure(EntityTypeBuilder<Ticket> builder)
+            {
+                builder.Property(author => author.Name)
+                    .IsRequired(IsNameRequired);
+
+                base.Configure(builder);
+            }
+        }
+
         [JsonProperty("ItemId")]
+
         public int ItemId { get; set; }
 
         public string Title { get; set; }
@@ -38,6 +55,10 @@ namespace Project1.Core.Entity
         }
 
 
+
+
+        public string? Name { get; set; } = string.Empty;
+        public List<Ticket> Articles { get; set; } = [];
 
 
 

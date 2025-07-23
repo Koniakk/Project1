@@ -24,7 +24,7 @@
          Height="70"
          Width="220"
          Content="Бронирование"
-         Background="LightCoral"
+         Background="#a4e2cf"
          FontSize="30"
          BorderBrush="Transparent"
          x:Name="TicketListPage"
