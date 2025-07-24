@@ -7,11 +7,6 @@ namespace AviaSales.Data
         public string? Name { get; set; } = string.Empty;
         public int CountryFromID { get; set; }
         public int CountryWhereID { get; set; }
-
-        public Country? CountryFrom { get; set; }
-        public Country? CountryWhere { get; set; }
-
-        public Passenger Passenger { get; set; }
         public int PassengerID { get; set; }
 
         public DateTime Data { get; set; }
