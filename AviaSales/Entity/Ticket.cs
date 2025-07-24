@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Project1.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1.Core.Entity
+namespace AviaSales.Entity
 {
     public class Ticket : IdentifiableEntity
     {
@@ -27,7 +26,7 @@ namespace Project1.Core.Entity
                   .WithMany(CountryFrom => CountryFrom.From)
                   .HasForeignKey(ticket => ticket.CountryFromID)
                   .IsRequired(true);
-                
+
                 builder.HasOne(ticket => ticket.CountryWhere)
                   .WithMany(CountryWhere => CountryWhere.Where)
                   .HasForeignKey(ticket => ticket.CountryWhereID)

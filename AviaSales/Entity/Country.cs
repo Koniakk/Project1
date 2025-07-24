@@ -1,12 +1,9 @@
-﻿
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Project1.Core.Entity;
-using Project1.Entity;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
 
 
-namespace Project1.Core
+namespace AviaSales.Entity
 {
     public class Country : IdentifiableEntity
     {
@@ -28,6 +25,6 @@ namespace Project1.Core
         public List<Ticket> Where { get; set; } = [];
     }
 
-    
+
 
 }

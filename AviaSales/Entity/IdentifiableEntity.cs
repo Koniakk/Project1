@@ -1,4 +1,4 @@
-﻿namespace Project1.Entity
+﻿namespace AviaSales.Entity
 {
     public class IdentifiableEntity : Entities
     {

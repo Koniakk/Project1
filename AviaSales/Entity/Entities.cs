@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Project1.Entity
+namespace AviaSales.Entity
 {
     public abstract class Entities
     {
