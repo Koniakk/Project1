@@ -13,7 +13,7 @@ namespace AviaSales.Controllers
         [HttpGet]
         public async Task<ActionResult<TicketDTO>> Get([FromBody] List<int> ids)
         {
-            var topic =(await _service.Get(_service._dataContext.Topics, ids))
+            var topic =(await _service.Get(_service._dataContext.Tickets, ids))
                 .Select(x => x.ToDTO())
                 .ToList();
 
@@ -23,7 +23,7 @@ namespace AviaSales.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete([FromBody] List<int> ids)
         {
-            var result = await _service.Delete(_service._dataContext.Topics, ids);
+            var result = await _service.Delete(_service._dataContext.Tickets, ids);
 
             if (result)
                 return Ok(result);
@@ -35,7 +35,7 @@ namespace AviaSales.Controllers
         public async Task<ActionResult> Set([FromBody] List<TicketDTO> topics)
         {
             var result = await _service.Set(
-                _service._dataContext.Topics, 
+                _service._dataContext.Tickets, 
                 topics.Select(x=>x.ToEntity()).ToList()
                 );
 

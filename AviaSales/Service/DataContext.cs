@@ -42,8 +42,8 @@ namespace AviaSales.Service
             base.OnModelCreating(builder);
         }
 
-        public DbSet<Country> Articles => Set<Country>();
-        public DbSet<Passenger> Authors => Set<Passenger>();
-        public DbSet<Ticket> Topics => Set<Ticket>();
+        public DbSet<Country> Countries => Set<Country>();
+        public DbSet<Passenger> Passengers => Set<Passenger>();
+        public DbSet<Ticket> Tickets => Set<Ticket>();
     }
 }
