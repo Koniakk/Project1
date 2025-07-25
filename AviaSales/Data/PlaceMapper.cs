@@ -4,27 +4,26 @@ using NewsAPI.Data;
 
 namespace AviaSales.Data
 {
-    public static class PassengerMapper
+    public static class PlaceMapper
     {
-        public static Passenger ToEntity(this PassengerDTO topic)
+        public static Place ToEntity(this PlaceDTO topic)
         {
-            return new Passenger()
+            return new Place()
             {
                 Id = topic.Id,
                 Name = topic.Name,
-                Age = topic.Age??0,
+
                 UpdatedAt = topic.UpdatedAt,
                 CreatedAt = topic.CreatedAt
             };
         }
 
-        public static PassengerDTO ToDTO(this Passenger topic)
+        public static PlaceDTO ToDTO(this Place topic)
         {
-            return new PassengerDTO()
+            return new PlaceDTO()
             {
                 Id = topic.Id,
                 Name = topic.Name,
-                Age = topic.Age,    
                 UpdatedAt = topic.UpdatedAt,
                 CreatedAt = topic.CreatedAt
             };

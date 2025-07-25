@@ -8,6 +8,7 @@ namespace AviaSales.Data
         public int CountryFromID { get; set; }
         public int CountryWhereID { get; set; }
         public int PassengerID { get; set; }
+        public int PlaceID { get; set; }
 
         public DateTime Data { get; set; }
     }

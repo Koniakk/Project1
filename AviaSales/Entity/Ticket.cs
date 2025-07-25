@@ -44,6 +44,10 @@ namespace AviaSales.Entity
 
         public Passenger Passenger { get; set; }
         public int PassengerID { get; set; }
+        public int PlaneID { get; set; }
+
+        public int PlaceID { get; set; }
+
 
         public DateTime Data { get; set; }
 
