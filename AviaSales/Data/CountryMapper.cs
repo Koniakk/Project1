@@ -11,8 +11,7 @@ namespace AviaSales.Data
             return new Country()
             {
                 Id = topic.Id,
-                From = topic.From,  
-                Where = topic.Where,    
+                Name = topic.Name,
                 UpdatedAt = topic.UpdatedAt,
                 CreatedAt = topic.CreatedAt
             };
@@ -23,8 +22,7 @@ namespace AviaSales.Data
             return new CountryDTO()
             {
                 Id = topic.Id,
-                From = topic.From,
-                Where = topic.Where,
+                Name = topic.Name,
                 UpdatedAt = topic.UpdatedAt,
                 CreatedAt = topic.CreatedAt
             };
