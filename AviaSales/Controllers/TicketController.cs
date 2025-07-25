@@ -4,7 +4,7 @@ using AviaSales.Service;
 
 namespace AviaSales.Controllers
 {
-    [Route("AviaSales/ticket")]
+    [Route("avia_sales/ticket")]
     [ApiController]
     public class TicketController(TicketService service):ControllerBase
     {
