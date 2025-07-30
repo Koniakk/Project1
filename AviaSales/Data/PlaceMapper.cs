@@ -12,7 +12,7 @@ namespace AviaSales.Data
             {
                 Id = topic.Id,
                 Name = topic.Name,
-
+                PlaneID = topic.PlaneID,
                 UpdatedAt = topic.UpdatedAt,
                 CreatedAt = topic.CreatedAt
             };
@@ -24,6 +24,7 @@ namespace AviaSales.Data
             {
                 Id = topic.Id,
                 Name = topic.Name,
+                PlaneID = topic.PlaneID,
                 UpdatedAt = topic.UpdatedAt,
                 CreatedAt = topic.CreatedAt
             };
