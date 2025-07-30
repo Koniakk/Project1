@@ -19,6 +19,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<PassengerService>();
 builder.Services.AddScoped<CountryService>();
 builder.Services.AddScoped<TicketService>();
+builder.Services.AddScoped<PlaceService>();
+builder.Services.AddScoped<PlaneService>();
 
 var app = builder.Build();
 
