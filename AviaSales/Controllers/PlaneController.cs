@@ -5,7 +5,7 @@ using NewsAPI.Data;
 
 namespace AviaSales.Controllers
 {
-    [Route("avia_sales/country")]
+    [Route("avia_sales/plane")]
     [ApiController]
     public class PlaneController(PlaneService service):ControllerBase
     {
