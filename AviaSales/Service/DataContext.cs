@@ -46,6 +46,7 @@ namespace AviaSales.Service
         public DbSet<Passenger> Passengers => Set<Passenger>();
         public DbSet<Ticket> Tickets => Set<Ticket>();
         public DbSet<Plane> Planes => Set<Plane>();
+        public DbSet<Place> Places => Set<Place>();
 
 
     }

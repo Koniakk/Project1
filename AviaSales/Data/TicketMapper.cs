@@ -14,7 +14,6 @@ namespace AviaSales.Data
                 Name = topic.Name,
                 Data = topic.Data,  
                 PassengerID = topic.PassengerID,
-                PlaneID = topic.PlaneID,
                 PlaceID = topic.PlaceID,
 
                 UpdatedAt = topic.UpdatedAt,
@@ -32,7 +31,6 @@ namespace AviaSales.Data
                 Name = topic.Name,
                 Data = topic.Data,
                 PassengerID = topic.PassengerID,
-                PlaneID = topic.PlaneID,
                 PlaceID = topic.PlaceID,    
                 UpdatedAt = topic.UpdatedAt,
                 CreatedAt = topic.CreatedAt
