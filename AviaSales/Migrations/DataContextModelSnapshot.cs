@@ -167,16 +167,22 @@ namespace AviaSales.Migrations
 
                     b.HasIndex("PassengerID");
 
+                    b.HasIndex("PlaceID");
+
+                    b.HasIndex("PlaneID");
+
                     b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("AviaSales.Entity.Place", b =>
                 {
-                    b.HasOne("AviaSales.Entity.Plane", null)
+                    b.HasOne("AviaSales.Entity.Plane", "Plane")
                         .WithMany("PlacesInPlane")
                         .HasForeignKey("PlaneID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Plane");
                 });
 
             modelBuilder.Entity("AviaSales.Entity.Ticket", b =>
@@ -199,11 +205,27 @@ namespace AviaSales.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AviaSales.Entity.Place", "Place")
+                        .WithMany("Tickets")
+                        .HasForeignKey("PlaceID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AviaSales.Entity.Plane", "Plane")
+                        .WithMany("Tickets")
+                        .HasForeignKey("PlaneID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("CountryFrom");
 
                     b.Navigation("CountryWhere");
 
                     b.Navigation("Passenger");
+
+                    b.Navigation("Place");
+
+                    b.Navigation("Plane");
                 });
 
             modelBuilder.Entity("AviaSales.Entity.Country", b =>
@@ -218,9 +240,16 @@ namespace AviaSales.Migrations
                     b.Navigation("Tickets");
                 });
 
+            modelBuilder.Entity("AviaSales.Entity.Place", b =>
+                {
+                    b.Navigation("Tickets");
+                });
+
             modelBuilder.Entity("AviaSales.Entity.Plane", b =>
                 {
                     b.Navigation("PlacesInPlane");
+
+                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AviaSales.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250724173851_Init")]
-    partial class Init
+    [Migration("20250730181240_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,6 +74,58 @@ namespace AviaSales.Migrations
                     b.ToTable("Passengers");
                 });
 
+            modelBuilder.Entity("AviaSales.Entity.Place", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<int>("PlaneID")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlaneID");
+
+                    b.ToTable("Places");
+                });
+
+            modelBuilder.Entity("AviaSales.Entity.Plane", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Company")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Planes");
+                });
+
             modelBuilder.Entity("AviaSales.Entity.Ticket", b =>
                 {
                     b.Property<int>("Id")
@@ -101,6 +153,12 @@ namespace AviaSales.Migrations
                     b.Property<int>("PassengerID")
                         .HasColumnType("integer");
 
+                    b.Property<int>("PlaceID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("PlaneID")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -112,7 +170,22 @@ namespace AviaSales.Migrations
 
                     b.HasIndex("PassengerID");
 
+                    b.HasIndex("PlaceID");
+
+                    b.HasIndex("PlaneID");
+
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("AviaSales.Entity.Place", b =>
+                {
+                    b.HasOne("AviaSales.Entity.Plane", "Plane")
+                        .WithMany("PlacesInPlane")
+                        .HasForeignKey("PlaneID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Plane");
                 });
 
             modelBuilder.Entity("AviaSales.Entity.Ticket", b =>
@@ -135,11 +208,27 @@ namespace AviaSales.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AviaSales.Entity.Place", "Place")
+                        .WithMany("Tickets")
+                        .HasForeignKey("PlaceID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AviaSales.Entity.Plane", "Plane")
+                        .WithMany("Tickets")
+                        .HasForeignKey("PlaneID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("CountryFrom");
 
                     b.Navigation("CountryWhere");
 
                     b.Navigation("Passenger");
+
+                    b.Navigation("Place");
+
+                    b.Navigation("Plane");
                 });
 
             modelBuilder.Entity("AviaSales.Entity.Country", b =>
@@ -151,6 +240,18 @@ namespace AviaSales.Migrations
 
             modelBuilder.Entity("AviaSales.Entity.Passenger", b =>
                 {
+                    b.Navigation("Tickets");
+                });
+
+            modelBuilder.Entity("AviaSales.Entity.Place", b =>
+                {
+                    b.Navigation("Tickets");
+                });
+
+            modelBuilder.Entity("AviaSales.Entity.Plane", b =>
+                {
+                    b.Navigation("PlacesInPlane");
+
                     b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618

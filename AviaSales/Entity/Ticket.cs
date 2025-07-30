@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,15 @@ namespace AviaSales.Entity
                   .HasForeignKey(ticket => ticket.CountryWhereID)
                   .IsRequired(true);
 
+
+                builder.HasOne(ticket => ticket.Plane)
+                    .WithMany(plane => plane.Tickets)
+                    .HasForeignKey(ticket => ticket.PlaneID);
+
+                builder.HasOne(ticket => ticket.Place)
+                    .WithMany(place => place.Tickets)
+                    .HasForeignKey(ticket => ticket.PlaceID);
+
                 base.Configure(builder);
             }
         }
@@ -45,8 +55,9 @@ namespace AviaSales.Entity
         public Passenger Passenger { get; set; }
         public int PassengerID { get; set; }
         public int PlaneID { get; set; }
-
+        public Plane Plane { get; set; }
         public int PlaceID { get; set; }
+        public Place Place { get; set; }
 
 
         public DateTime Data { get; set; }

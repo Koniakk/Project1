@@ -26,6 +26,7 @@ namespace AviaSales.Entity
         public string? Company { get; set; } = string.Empty;
 
         public List<Place> PlacesInPlane { get; set; } = [];
+        public List<Ticket> Tickets{ get; set; } = [];
 
 
     }
