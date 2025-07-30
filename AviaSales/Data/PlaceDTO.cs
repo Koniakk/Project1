@@ -7,5 +7,6 @@ namespace NewsAPI.Data
     {
         public string? Name { get; set; } = string.Empty;
 
+        public int PlaneID { get; set; }
     }
 }
