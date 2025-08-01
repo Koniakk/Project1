@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/avia_sales': {
-        target: 'http://newsapi:8080',
+        target: 'http://avia_salesapi:8080',
         changeOrigin: true,
         rewrite: (path) => path
       }
