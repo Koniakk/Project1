@@ -95,6 +95,21 @@ services:
     networks:
       - backend
       
+  
+  frontend:
+    container_name: react-app
+    build:
+      context: ./AviaSalesapi_Client 
+      dockerfile: Dockerfile
+    ports:
+      - "3000:5173"
+    environment:
+      VITE_API_URL: "http://avia_salesapi:8080"
+    depends_on:
+      - avia_salesapi
+    networks:
+      - backend
+
 volumes:
   pgadmin-data:
   avia_sales-data:
